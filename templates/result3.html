@@ -1,0 +1,125 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+  
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+  
+  <!-- Bootstrap for styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: url('{% static "images/5.jpg" %}') no-repeat center center fixed; 
+      background-size: cover;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .center-screen {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info-box {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 1rem;
+      width: 80%;
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .info-value {
+      font-size: 1.25rem;
+      color: #007bff;
+      text-align: left; /* Center-align the value */
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bolder;
+      color: red;
+    }
+    
+    h1 {
+      text-transform: uppercase;
+      font-weight: bolder;
+      color: rgb(8, 41, 228);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center-screen">
+    <div class="info-box">
+      <h2>WEATHER PREDICTION</h2><br>
+      
+      <div class="info-row">
+        <div class="info-label">City :</div>
+        <div class="info-value">{{ city }}</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Date :</div>
+        <div class="info-value">{{ date_time }}</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Temperature :</div>
+        <div class="info-value">{{ temp }}&#8451;</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Humidity :</div>
+        <div class="info-value">{{ humidity }}%</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Feels Like :</div>
+        <div class="info-value">{{ feels_like }}&#8451;</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Wind :</div>
+        <div class="info-value">{{ wind }} km/h</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{% endblock content %}

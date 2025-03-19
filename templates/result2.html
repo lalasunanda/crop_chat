@@ -1,0 +1,99 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+  
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+  
+  <!-- Bootstrap for styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: url('{% static "images/5.jpg" %}') no-repeat center center fixed; 
+      background-size: cover;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .center-screen {
+      min-height: 100%; /* Fallback for browsers do not support vh unit */
+      min-height: 100vh; /* These two lines are counted as one CSS declaration */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info-box {
+      background-color: #ffffff;
+      border: 1px solid #030303; /* Soft grey border */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      padding: 2rem;
+      margin: 1rem;
+      width: 90%; /* Increased width */
+      max-width: 800px; /* Adjusted maximum width */
+      text-align: left; /* Align text to the left */
+    }
+    .info-box img {
+    display: block; /* Ensures the image is block level for margin auto to work */
+    margin: auto; /* Centers the image horizontally */
+    max-width: 100%; /* Makes the image responsive to the container width */
+    height: auto; /* Maintains aspect ratio */
+  }
+
+    .info-box h1 {
+      font-size: 1.75rem;
+      color: #333; /* Dark grey color for text */
+      margin: 0; /* No margin for a compact design */
+      padding: 0.5rem 0; /* Padding at the top and bottom */
+      background-color: transparent; /* Transparent background */
+      white-space: nowrap; /* Prevents the text from wrapping */
+      overflow: hidden; /* Hide overflow */
+      text-overflow: ellipsis; /* Add an ellipsis if the text is too long */
+    }
+
+    /* Additional styles if you need them */
+    .info-box .value {
+      font-size: 2rem; /* Larger font size for values */
+      font-weight: 500; /* Medium font weight */
+      color: #007bff; /* Bootstrap primary blue for values */
+    }
+    
+    h2{
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bolder;
+      color: red;
+    }
+    h1{
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bolder;
+      color: rgb(8, 41, 228);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center-screen">
+    <div class="info-box">
+      <h2>CROP YIELD PREDICTION USING SEASON</h2><br>
+      <img class="center" src="{% static 'images/c.jpg' %}" alt="Notes image" width="500" height="500"><br>
+      <h1>Result :<span class="value"> {{result}}</span></h1>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{% endblock content %}
