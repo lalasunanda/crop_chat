@@ -26,11 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 lemmatizer = WordNetLemmatizer()
 
-# Load TF-IDF model, corpus, and dataframe
 try:
-    tfidf_fit = joblib.load('Models\\tfidf_vectorizer.pkl')
-    tfidf_corpus = joblib.load('Models\\tfidf_corpus.pkl')
-    df = pd.read_csv('Models\\questions_answers.csv')
+    tfidf_fit = joblib.load(os.path.join(BASE_DIR, "Models", "tfidf_vectorizer.pkl"))
+    tfidf_corpus = joblib.load(os.path.join(BASE_DIR, "Models", "tfidf_corpus.pkl"))
+    df = pd.read_csv(os.path.join(BASE_DIR, "Models", "questions_answers.csv"))
 except FileNotFoundError as e:
     print(f"File loading error: {e}")
 
@@ -156,7 +155,7 @@ def result(request):
     return render(request, 'result.html', {'result': result})
 
 def getPredictions2(a, b, c, d, e, f):
-    model = pickle.load(open('Models\\Crop_season_model.pkl', 'rb'))
+    model = joblib.load(os.path.join(BASE_DIR, "Models", "Crop_season_model.pkl"))
     new_data = {
             'State_Name': a,
             'District_Name':b,
