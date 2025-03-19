@@ -16,7 +16,7 @@ files_to_download = {
     "Crop season/Crop_season.ipynb": "1X6fnGsErc17yMXTgFqbX3vATyPIbNsX9",
     "Crop season/Data.csv": "1Uaw6RNX2Y4uXKALid5NcIiD9uVk7i28-",
     "Models/Crop_season_model.onnx": "11RJRvGm5Qs2wj952QiNU15cBdvm9AhCO",
-    "Models/RF.pkl": "117J9IcPutGhGNENHyJGaMRHu73rkxkGh",
+    "base/Models/RF.pkl": "117J9IcPutGhGNENHyJGaMRHu73rkxkGh",
     "Models/Weather_Rf.pkl": "1cieV2kNFutthpt1eBo0NBf8FlhzwGNbA",
     "Models/questions_answers.csv": "1V1y98XAwDWSw7vgvBLkHwqHswLrV4cfk",
     "Models/tfidf_corpus.pkl": "1thKDeqZawyz5oDKLiCviE9M4hjnFxvbq",
