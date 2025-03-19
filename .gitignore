@@ -1,5 +1,6 @@
 # Ignore large files and unnecessary folders
 Models/*
+Models/Crop_season_model.onnx
 
 backend/
 Agriculture-zip.zip

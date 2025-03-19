@@ -153,21 +153,43 @@ def result(request):
     result = getPredictions(a, b, c, d, e, f, g,h,i)
     result=round(result,2)
     return render(request, 'result.html', {'result': result})
+import onnxruntime as ort
+import pandas as pd
+import numpy as np
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def getPredictions2(a, b, c, d, e, f):
-    model = joblib.load(os.path.join(BASE_DIR, "Models", "Crop_season_model.pkl"))
-    new_data = {
-            'State_Name': a,
-            'District_Name':b,
-           'Crop_Year':c,
-            'Season': d,
-           'Area':e,
-            'Production':f
-           }
-    new_df = pd.DataFrame([new_data])
-    prediction = model.predict(new_df)
+    model_path = os.path.join(BASE_DIR, "Models", "Crop_season_model.onnx")
 
-    return prediction[0]
+    # Load ONNX model
+    session = ort.InferenceSession(model_path)
+
+    # Prepare input data in the required format
+    new_data = {
+        'State_Name': [a],
+        'District_Name': [b],
+        'Crop_Year': [c],
+        'Season': [d],
+        'Area': [e],
+        'Production': [f]
+    }
+    
+    new_df = pd.DataFrame(new_data)
+    
+    # Convert DataFrame to NumPy array (ensure it matches the model's expected input shape)
+    input_array = new_df.to_numpy().astype(np.float32)
+
+    # Get input name from ONNX model
+    input_name = session.get_inputs()[0].name
+    output_name = session.get_outputs()[0].name
+
+    # Run the model
+    prediction = session.run([output_name], {input_name: input_array})[0]
+
+    return prediction[0]  # Return the first prediction
+
 
 @login_required(login_url='login')
 def result2(request):
