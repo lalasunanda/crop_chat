@@ -1,6 +1,8 @@
 import os
 import gdown
 
+BASE_DIR = "/opt/render/project/src"
+
 # Define the Google Drive file IDs and target paths
 files_to_download = {
     "Chatbot/tfidf_corpus.pkl": "1ET0j4J63g5xtK_DpELnG6I-hzKdEOu0i",  # Replace with actual file ID
