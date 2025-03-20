@@ -161,7 +161,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def getPredictions2(a, b, c, d, e, f):
-    model_path = os.path.join(BASE_DIR, "Models", "Crop_season_model.onnx")
+    model_path = os.path.join(BASE_DIR, "Models", "Crop_season_model_quantized.onnx")
 
     # Load ONNX model
     session = ort.InferenceSession(model_path)
